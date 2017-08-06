@@ -55,6 +55,3 @@ v-on:click="addItem"
 ```
 
 vue_pomodoro.html
-
-
-._12345 .abc
