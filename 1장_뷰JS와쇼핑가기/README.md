@@ -76,4 +76,4 @@ v-on:click="addItem"
 '뽀모도로'는 이탈리아어로 토마토를 뜻한다.
 ```
 
-[./vue_pomodoro.html]
+(./vue_pomodoro.html)
