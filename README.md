@@ -18,7 +18,7 @@ vue.js 2 시작하기 - 스터디 진행
 
 작성법은 [/02_챕터명/README.md]
 
-### 
+### 과제
 - 과제가 있을때 작성하여 제출
 - 챕터별 폴더 내에 (Homework 번호) _ (작성자 이름).html 파일 업로드 예) 02_정재필.html
 
@@ -27,9 +27,9 @@ vue.js 2 시작하기 - 스터디 진행
 - 각 챕터별로 담당자를 정해서 리딩한다.
 - 과제가 있을경우 리뷰 후 진행 한다.
 
-### 교재
-[Vue.js 2 시작하기](http://www.kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&mallGb=KOR&barcode=9788960777439&orderClick=LEA)  
-[kr.vuejs](https://kr.vuejs.org/v2/guide/)
+### 교재 및 참고 사이트
+책 - [Vue.js 2 시작하기](http://www.kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&mallGb=KOR&barcode=9788960777439&orderClick=LEA)  
+웹사이트 - [kr.vuejs](https://kr.vuejs.org/v2/guide/)
 
 
 ### 일정
