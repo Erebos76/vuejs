@@ -43,10 +43,10 @@ Angular, Backbone, React 에 비하여 매우 작고 가벼우며, 복잡도도 
 프로토타입 생성.
 
 1. jquery
-jquery_shopping.html
+[jquery_shopping.html](./jquery_shopping.html)
 
 2. 뷰
-vue_shopping.html
+[vue_shopping.html](./vue_shopping.html)
 
 #### 지시자 
 
@@ -77,3 +77,5 @@ v-on:click="addItem"
 ```
 
 vue_pomodoro.html
+[vue_pomodoro.html](./vue_pomodoro.html)
+[vue_pomodoro.js](./vue_pomodoro.js)
