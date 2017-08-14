@@ -1,0 +1,6 @@
+@charset "utf-8";
+
+.container {width:40%;margin:20px auto 0}
+.remove {color:gray}
+.removed label {text-decoration:line-through}
+ul li {list-style-type:none;}
