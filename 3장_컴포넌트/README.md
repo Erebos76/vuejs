@@ -33,7 +33,7 @@
 
  - vue-cli  
     $ npm install -g vue-cli  
-    $ vue init <template-name> <project-name>
+    $ vue init template-name project-name
     
             Template 종류
             - webpack : Webpack, vue-loader, 정적 분석, 테스트 등 기본 빌드 프로세스 대부분을 설정
@@ -62,3 +62,8 @@
  - 카멜케이스 형식으로 컴포넌트 변수를 생성 후 템플릿 내부에서 해당 변수에 접근하기 위해서는 케밥케이스를 사용해야 한다.
  - 컴포넌트의 data와 el 속성은 반드시 객체가 아니라 함수여야 한다.
  - 컴포넌트의 스타일을 전역으로 노출하고 싶지 않다면 scoped 속성을 추가하면 된다.
+ 
+ 
+ #### 참조 사이트
+ - vue.js webpack ver  : https://github.com/vuejs-templates/webpack
+ - vue-loader : https://vue-loader.vuejs.org/kr/
