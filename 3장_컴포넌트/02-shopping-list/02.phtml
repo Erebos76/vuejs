@@ -1,0 +1,138 @@
+<html>
+<head>
+    <style>
+        .container {
+            width: 40%;
+            margin: 20px auto 0 auto;
+        }
+
+        .removed label {
+            text-decoration: line-through;
+        }
+
+        ul li {
+            list-style-type: none;
+        }
+
+        ul li span {
+            margin-left: 5px;
+        }
+
+        .footer {
+            font-size: 0.7em;
+            margin-top: 20vh;
+        }
+    </style>
+</head>
+
+<body>
+<!--새로운 항목을 추가하는 템플릿-->
+<template id="add-item-template">
+    <div>
+        <input type="text" v-model.trim="newItem" @keyup.enter="addItem" placeholder="add shopping list item">
+        <span>
+            <button type="button" @click="addItem">Add!</button>
+        </span>
+    </div>
+</template>
+
+<!--항목을 보여주는 템플릿-->
+<template id="item-template">
+    <li :class="{ 'removed': item.checked }">
+        <div>
+            <label>
+                <input type="checkbox" v-model="item.checked"> {{ item.text }}
+            </label>
+        </div>
+    </li>
+</template>
+
+<!--항목을 나열하는 템플릿-->
+<template id="items-template">
+    <ul>
+        <item-component v-for="item in items" :item="item"></item-component>
+    </ul>
+</template>
+
+<!--제목을 변경하는 템플릿-->
+<template id="change-title-template">
+    <div>
+        <em>Change the title of your shopping list here</em>
+        <input v-bind:value="value" v-on:input="onInput"/>
+    </div>
+</template>
+
+<div id="app" class="container">
+    <h2>{{ title }}</h2>
+    <add-item-component :items="items"></add-item-component>
+    <items-component :items="items"></items-component>
+    <div class="footer">
+        <hr/>
+        <change-title-component v-model="title"></change-title-component>
+    </div>
+</div>
+<script src="/vue.js"></script>
+<script>
+    // 아이템 추가 컴포넌트
+    Vue.component('add-item-component', {
+        template: '#add-item-template',
+        data: function () {
+            return {
+                newItem: ''
+            }
+        },
+        props: ['items'],
+        methods: {
+            addItem: function () {
+                let text;
+
+                text = this.newItem;
+                if (text) {
+                    this.items.push({
+                        text: text,
+                        checked: false
+                    });
+                    this.newItem = '';
+                }
+            }
+        }
+    });
+
+    // 아이템 컴포넌트
+    Vue.component('item-component', {
+        template: '#item-template',
+        props: ['item']
+    });
+
+    // 아이템 목록 컴포넌트
+    Vue.component('items-component', {
+        template: '#items-template',
+        props: ['items']
+    });
+
+    // 제목 변경 컴포넌트
+    Vue.component('change-title-component', {
+        template: '#change-title-template',
+        props: ['value'],
+        methods: {
+            onInput: function (event) {
+                this.$emit('input', event.target.value)
+            }
+        }
+    });
+
+    let data = {
+        items: [
+            {text: 'Bananas', checked: true},
+            {text: 'Apples', checked: false}
+        ],
+        title: 'My Shopping List'
+    };
+
+    new Vue({
+        el: '#app',
+        data: data
+    });
+</script>
+</body>
+</html>

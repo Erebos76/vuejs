@@ -1,0 +1,74 @@
+<!--컴포넌트 내의 또 다른 컴포넌트-->
+
+<body>
+<!--폼을 위한 템플릿-->
+<template id="form">
+    <div>
+        <label for="name">What's your name?</label>
+<!--        <input type="text" id="name" v-model="user" >-->
+        <input type="text" id="name" v-bind:value="value" v-on:input="onInput">
+    </div>
+</template>
+
+<!--Hello를 출력하는 템플릿-->
+<template id="hello">
+    <h1>{{msg}} {{user}}</h1>
+</template>
+
+<template id="greetings">
+    <div>
+<!--        <form-component :user="user"></form-component>-->
+        <form-component v-model="user"></form-component>
+        <hello-component :user="user"></hello-component>
+    </div>
+</template>
+
+<div id="app">
+    <greetings-component></greetings-component>
+</div>
+
+<script src="/vue.js"></script>
+<script>
+    // form 컴포넌트
+//    Vue.component('form-component', {
+//        template: '#form',
+//        props: ['user']
+//    });
+
+    // form 컴포넌트, 자식 컴포넌트가 부모 컴포넌트 상태값 변경하고자 할 때 이벤트 처리
+    Vue.component('form-component', {
+        template: '#form',
+        props: ['value'],
+        methods: {
+            onInput: function (event) {
+                this.$emit('input', event.target.value)
+            }
+        }
+    });
+
+    // Hello 컴포넌트
+    Vue.component('hello-component', {
+        template: '#hello',
+        data: function () {
+            return {
+                msg: 'Hello'
+            }
+        },
+        props: ['user']
+    });
+
+    //greetings 템플릿을 기반으로 greetings 컴포넌트 생성
+    Vue.component('greetings-component', {
+        template: '#greetings',
+        data: function () {
+            return {
+                user: 'hero'
+            }
+        }
+    });
+
+    new Vue({
+        el: '#app'
+    });
+</script>
+</body>

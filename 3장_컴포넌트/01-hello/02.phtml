@@ -1,0 +1,22 @@
+<!--HTML로 템플릿 작성-->
+
+<body>
+<template id="hello">
+    <h1>Hello</h1>
+</template>
+
+<div id="app">
+    <hello-component></hello-component>
+</div>
+
+<script src="/vue.js"></script>
+<script>
+    Vue.component('hello-component', {
+        template: '#hello'
+    });
+
+    new Vue({
+        el: '#app'
+    })
+</script>
+</body>

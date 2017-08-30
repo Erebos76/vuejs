@@ -1,0 +1,22 @@
+<!--컴포넌트 생성-->
+
+<div id="app">
+    <hello-component></hello-component>
+</div>
+
+
+<script src="/vue.js"></script>
+<script>
+    // 컴포넌트 생성
+    var HelloComponent = Vue.extend({
+        template: '<h1>Hello</h1>'
+    });
+
+    // 컴포넌트 등록
+    Vue.component('hello-component', HelloComponent);
+
+    // 뷰 어플리케이션 초기화
+    new Vue({
+        el: '#app'
+    });
+</script>
