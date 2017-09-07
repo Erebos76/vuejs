@@ -1,7 +1,11 @@
-<template lang="jade">
-  li(v-bind:class='{ "removed": item.checked }')
-    input(v-model='item.checked', type='checkbox')
-    span {{ item.text }}
+<template>
+  <li :class="{ 'removed': item.checked }">
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" v-model="item.checked"> {{ item.text }}
+      </label>
+    </div>
+  </li>
 </template>
 
 <script>
@@ -14,7 +18,7 @@
   .removed {
     color: gray;
   }
-  .removed span {
+  .removed label {
     text-decoration: line-through;
   }
   li {

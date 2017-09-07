@@ -1,11 +1,13 @@
-<template lang="jade">
-div
-  h2 {{ title }}
-  add-item-component(:items='items')
-  items-component(:items='items')
-  .footer
-    hr
-    change-title-component(:title='title', :id='id')
+<template>
+  <div>
+    <h2>{{ title }}</h2>
+    <add-item-component @add="addItem"></add-item-component>
+    <items-component :items="items"></items-component>
+    <div class="footer">
+      <hr />
+      <change-title-component :title="title" v-on:changeTitle="onChangeTitle"></change-title-component>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -19,7 +21,18 @@ div
       ItemsComponent,
       ChangeTitleComponent
     },
-    props: ['id', 'title', 'items']
+    props: ['id', 'title', 'items'],
+    methods: {
+      addItem (text) {
+        this.items.push({
+          text: text,
+          checked: false
+        })
+      },
+      onChangeTitle (text) {
+        this.$emit('changeTitle', this.id, text)
+      }
+    }
   }
 </script>
 

@@ -1,29 +1,27 @@
-<template lang="jade">
-  .input-group
-    input.form-control(placeholder="add shopping list item", type="text", v-model="newItem", @keyup.13="addItem")
-    span.input-group-btn
-      button.btn.btn-default(type="button", @click="addItem") Add!
+<template>
+  <div class="input-group">
+    <input type="text" @keyup.enter="addItem" v-model="newItem" placeholder="add shopping list item" class="form-control">
+    <span class="input-group-btn">
+      <button @click="addItem" class="btn btn-default" type="button">Add!</button>
+    </span>
+  </div>
 </template>
 
 <script>
   export default {
-    data() {
+    data () {
       return {
         newItem: ''
       }
     },
-    props: ['items'],
     methods: {
-      addItem() {
-        var text;
+      addItem () {
+        var text
 
-        text = this.newItem.trim();
+        text = this.newItem.trim()
         if (text) {
-          this.items.push({
-            text: text,
-            checked: false
-          });
-          this.newItem = "";
+          this.$emit('add', this.newItem)
+          this.newItem = ''
         }
       }
     }

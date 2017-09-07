@@ -1,23 +1,20 @@
-<template lang="jade">
-  div
-    em Change the title of your shopping list here
-    input(v-model='title' @keyup='tryChangeTitle')
+<template>
+  <div>
+    <em>Change the title of your shopping list here</em>
+    <input :value="title" @input="onInput"/>
+  </div>
 </template>
 
 <script>
-  import { changeTitle } from '../vuex/actions'
-
   export default {
-    vuex: {
-      actions: {
-        changeTitle
-      }
-    },
+    props: ['value', 'title'],
     methods: {
-      tryChangeTitle() {
-        this.changeTitle(this.title, this.id)
+      onInput (event) {
+        this.$emit('changeTitle', event.target.value)
       }
-    },
-    props: ['id', 'title']
+    }
   }
 </script>
+
+<style scoped>
+</style>
