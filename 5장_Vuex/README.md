@@ -10,6 +10,7 @@
 
 ## 전역 상태 관리가 필요한 이유는 무엇일까?  
 - 각 컴포넌트의 자신만의 지역 변수 존재 / 애플리케이션은 전역 상태를 보유  
+- 전역 상태에 대한 처리는 여러 곳에서 접근하게 되면 데이터 불일치 발생 가능  
 - 이러한 각 변수에 대한 접근 및 수정을 쉽게 하기 위해 Vuex 아키텍처 구축  
 
 ## Vuex의 정체?
@@ -22,6 +23,21 @@
 - 반응형으로 상태변경에 대해 뷰에 갱신
 - 컴포넌트는 저장소의 정의된 변이를 사용해서 변경 사항을 쉽게 추적
 ![Vuex architecture](https://vuex.vuejs.org/kr/images/vuex.png)
+
+### 변이  
+- 이벤트 핸들러 함수일 뿐
+- 직접적인 호출은 될 수 없으며, 정의된 변이의 이름을 commit 함수로 호출  
+	vuejs 2.0 이전 변이 처리 메소드 : dispatch
+- 원하는 만큼 변이 생성 가능, 상수화하여 사용 가능  
+- 제공하는 기능에 따라 변이를 분류 하고, 필요한 변이만 임포트 가능 => 이식성 및 유지보수 측면에서 최선의 접근
+
+### 액션  
+- 변이를 처리하는 함수 (dispatch 함수 호출)
+- 비구조화 할당 : 배열 또는 객체에서 데이터를 별개 변수로 추출해서 할당하는 식  
+참조 사이트  
+https://vuex.vuejs.org/kr/actions.html  
+https://blog.asamaru.net/2017/08/14/top-10-es6-features/  
+https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment  
 
 
 
