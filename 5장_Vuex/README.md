@@ -5,6 +5,7 @@
  	자식 컴포넌트 $emit 메소드 발생 => 부모 컴포넌트 v-on 지시자로 이벤트 리스닝
  - 자식 컴포넌트가 부모 컴포넌트 스코프에 대한 변경을 진행하게 되면 에러 발생  
 	[Vue warn]: Avoid mutating a prop directly since the value will be overwritten whenever the parent component re-renders. Instead, use a data or computed property based on the prop's value. Prop being mutated: "title"   
+	=> 중복되어 값이 쓰여지므로 자식 요소에서 직접 호출하지 말고 특정 데이터 또는 계산된 속성을 사용하라는 경고  
 - 따라서 자식 컴포넌트의 변경에 대해 App 컴포넌트까지 이벤트를 전파하여 상태를 변경해야 한다.  
 	App 컴포넌트가 전파된 상태 변경을 위한 ID 값이 필요
 
