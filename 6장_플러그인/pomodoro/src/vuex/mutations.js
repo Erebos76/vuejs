@@ -9,9 +9,9 @@ function togglePomodoro (state, toggle) {
   }
   state.isWorking = toggle
   if (state.isWorking) {
-    Vue.noise.start()
+    Vue.noise.start();
   } else {
-    Vue.noise.pause()
+    Vue.noise.pause();
   }
   state.counter = state.isWorking ? WORKING_TIME : RESTING_TIME
 }
@@ -33,7 +33,7 @@ export default {
     state.stopped = false
     state.interval = setInterval(() => tick(state), 1000)
     if (state.isWorking && state.soundEnabled) {
-      Vue.noise.start()
+      Vue.noise.start();
     }
   },
   [types.PAUSE] (state) {
@@ -41,21 +41,21 @@ export default {
     state.started = true
     state.stopped = false
     clearInterval(state.interval)
-    Vue.noise.pause()
+    Vue.noise.pause();
   },
   [types.STOP] (state) {
     state.stopped = true
     state.paused = false
     state.started = false
     togglePomodoro(state, true)
-    Vue.noise.stop()
+    Vue.noise.stop();
   },
   [types.TOGGLE_SOUND] (state) {
     state.soundEnabled = !state.soundEnabled
     if (state.soundEnabled) {
-      Vue.noise.start()
+      Vue.noise.start();
     } else {
-      Vue.noise.pause()
+      Vue.noise.pause();
     }
   }
 }

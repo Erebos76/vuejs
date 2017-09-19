@@ -92,6 +92,29 @@ VueNoiseGeneratorPlugin.js 파일을 추가한다음 세가지 메소드를 생�
 - generatePinkNoise
 - generateBrownNoise
 
+### 포모도로 애플리케이션에서 플러그인 사용
+
+main.js 파일을 열어서 VueNoiseGeneratorPlugin을 선언하고 뷰가 사용하도록 한다.
+```js
+import NGplugin from './plugins/VueNoiseGeneratorPlugin'
+
+Vue.use(NGplugin);
+```
+
+Vue.noise 메소드를 사용하면 어디서나 noise 지시자를 사용할 수 있다.
+
+```html
+<!-- App.vue -->
+<template>
+    <div id="app" class="container" v-noise="'brown'">
+    ...
+    </div>
+</template>
+```
+
+지시자 명으로 v-noise를 사용한 것에 유의 하자.  
+지시자 사용을 위해서는 v접두사를 지시자 이름 앞에 붙여야 한다.  
+큰따옴표 내부에 작은따옴표를 사용해서 brown 문자열을 감싸준다. 이렇게 하지 않으면 뷰는 brown 이라는 이름을 가지는 데이터 속성을 검색하는데, 이것이 뷰가 동작하는 방식이다.  
 
 
 
