@@ -1,4 +1,5 @@
 import * as types from './mutation_types';
+import getters from './getters';
 import _ from 'underscore';
 
 export default {

@@ -1,6 +1,6 @@
 <template>
     <ul>
-      <item-component v-for="item in items" :item="item" :id="id"></item-component>
+      <item-component v-for="(item, index) in items" :item="item" :id="id" :index="index"></item-component>
     </ul>
   </template>
 

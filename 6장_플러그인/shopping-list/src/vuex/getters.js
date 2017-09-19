@@ -5,7 +5,7 @@ export default {
         console.log('getList');
         return state.shoppinglists
     },
-    getItems: (state, id=10) => state.shoppinglists[id].items,
+    getItems: (state, id=0) => state.shoppinglists[id].items,
     getListById: (state, id) => _.findWhere(state.shoppinglists, { id: id })
 
     

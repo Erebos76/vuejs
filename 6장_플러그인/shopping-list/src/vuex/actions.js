@@ -23,6 +23,11 @@ export default {
             store.dispatch('populateShoppingLists');
         })
     },
+    deleteItem: (store, {id, index}) => {
+        let shoppingList = getters.getListById(store.state, id);
+        shoppingList.items.splice(index, 1);  
+        api.updateShoppingList(shoppingList);
+    },
     deleteShoppingList: (store, id) => {
         api.deleteShoppingList(id).then(() => {
             store.dispatch('populateShoppingLists');
